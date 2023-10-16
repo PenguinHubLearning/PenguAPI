@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="PenguAPI - Blog">
+    <meta property="og:description" content="Get Your Info For PenguinAPI Here!">
+    <meta property="og:url" content="https://www.blog.penguinhub.buzz.com"> <!-- Replace with your site URL -->
+    <meta property="og:type" content="website">
+    <title>PenguAPI Status</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>PenguinAPI V2 Updates</h1>
+    </header>
+    <nav>
+        <ul>
+        </ul>
+    </nav>
+    <main>
+        <article>
+            <h2>CCP API Is Being Recoded!</h2>
+            <p>Published on October 15, 2023 by ImaPenguin</p>
+            <p>Filipp Is Working Hard On Getting His API Recoded In Node!</p>
+        </article>
+        <article>
+            <h2>PenguinAPI V2 Development Canceled!</h2>
+            <p>Published on October 15, 2023 by ImaPenguin</p>
+            <p>I Have Canceled The Development of V2! Sorry!</p>
+        </article>
+        <!-- Add more articles for additional blog posts -->
+    </main>
+</body>
+</html>
+<style>/* Add these styles to your CSS to improve the navigation bar */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #007acc;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    background-color: #333;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+    margin: 20px;
+    padding: 20px;
+}
+
+article {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+p {
+    color: #cccccc;
+}
+
+a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+</style>
