@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="PenguAPI">
+    <meta property="og:description" content="The only API you'll need">
+    <meta property="og:url" content="https://www.penguinhub.buzz.com"> <!-- Replace with your site URL -->
+    <meta property="og:type" content="website">
+    <title>PenguAPI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a; /* Realm-themed background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #333; /* Dark header background */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+        }
+
+        /* Container for Endpoint Cards */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        /* Card Styles */
+        .endpoint-card {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            margin: 20px;
+            transition: transform 0.2s;
+        }
+
+        .endpoint-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Header Styles for Cards */
+        .card-header {
+            background-color: #007bff; /* Realm-themed blue header */
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Content Styles for Cards */
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Button Styles for Cards */
+        .copy-button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Copy Status Styles for Cards */
+        .copy-status {
+            text-align: center;
+            color: #007bff;
+            margin-top: 10px;
+        }
+
+        /* Slogan Styles */
+        .slogan {
+            background-color: #333; /* Dark slogan background */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            border-radius: 8px;
+            text-align: left;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close-button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+            float: right;
+        }
+
+        .close-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PenguAPI</h1>
+    </div>
+
+    <div class="container">
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>ChatGPT 4</h3>
+            </div>
+            <div class="card-content">
+                <p>Yall Know What This Is!</p>
+                <button class="copy-button" onclick="openCopyModal('https://chatgpt4.realmapi.workers.dev/chatbot?message=')">Copy</button>
+            </div>
+        </div>
+
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>ChatGPT 3</h3>
+            </div>
+            <div class="card-content">
+                <p>Yall Know What This Is!</p>
+                <button class="copy-button" onclick="openCopyModal('https://chatgpt-3.realmapi.workers.dev/chat?q=')">Copy</button>
+            </div>
+        </div>
+        
+        <!-- Add more endpoint cards here -->
+        <!-- Endpoint 3 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Llama2</h3>
+            </div>
+            <div class="card-content">
+                <p>Meta And Cloudflares AI!</p>
+                <button class="copy-button" onclick="openCopyModal('https://llama2.realmapi.workers.dev/chatbot?message=')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 4 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Dall-e</h3>
+            </div>
+            <div class="card-content">
+                <p>Ever Want An Image Generation?</p>
+                <button class="copy-button" onclick="openCopyModal('https://dall-e.realmapi.workers.dev/generate?prompt=')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 5 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Bard</h3>
+            </div>
+            <div class="card-content">
+                <p>Have Fun With Google Bard!</p>
+                <button class="copy-button" onclick="openCopyModal('https://google-bard.realmapi.workers.dev/chat?q=')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 6 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>DevGPT</h3>
+            </div>
+            <div class="card-content">
+                <p>Coding API For Your Use!</p>
+                <button class="copy-button" onclick="openCopyModal('https://devgpt.realmapi.workers.dev/chat?prompt=')">Copy</button>
+            </div>
+        </div>
+
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Random Number</h3>
+            </div>
+            <div class="card-content">
+                <p>Generate A Random Number!</p>
+                <button class="copy-button" onclick="openCopyModal('https://random-number.realmapi.workers.dev/')">Copy</button>
+            </div>
+        </div>
+        
+        <!-- Endpoint 8 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Weird Laws</h3>
+            </div>
+            <div class="card-content">
+                <p>Check Out Some Weird Laws!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/wl')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 9 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Tounge Twister</h3>
+            </div>
+            <div class="card-content">
+                <p>Get Yourself A Tounge Twister!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/tt')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 10 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Sports Fact</h3>
+            </div>
+            <div class="card-content">
+                <p>Get Facts On Sports!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/sf')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 11 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>BlackJack</h3>
+            </div>
+            <div class="card-content">
+                <p>Play A Game Of BlackJack!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/bj')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 12 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Compliment</h3>
+            </div>
+            <div class="card-content">
+                <p>Get A Compliment!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/compliment')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 13 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Quote</h3>
+            </div>
+            <div class="card-content">
+                <p>Request A Quote!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/quote')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 14 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Riddle</h3>
+            </div>
+            <div class="card-content">
+                <p>Reqest A Riddle!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/riddle')">Copy</button>
+            </div>
+        </div>
+        <!-- Endpoint 15 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Password Strength</h3>
+            </div>
+            <div class="card-content">
+                <p>Check Your Password Strength!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/ps')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 16 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Calculate</h3>
+            </div>
+            <div class="card-content">
+                <p>Calculate A Question!.</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/calculate')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 17 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Fact</h3>
+            </div>
+            <div class="card-content">
+                <p>Get A Fact!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/fact')">Copy</button>
+            </div>
+        </div>
+
+                <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Can I Afford This Item?</h3>
+            </div>
+            <div class="card-content">
+                <p>Honestly Don't Know What To Add - ImaPenguin</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/ciati')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 18 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Joke</h3>
+            </div>
+            <div class="card-content">
+                <p>Request A Joke!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/joke')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 19 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Trivia</h3>
+            </div>
+            <div class="card-content">
+                <p>Get A Trivia Question!</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/trivia')">Copy</button>
+            </div>
+        </div>
+
+        <!-- Endpoint 20 -->
+        <div class="endpoint-card">
+            <div class="card-header">
+                <h3>Funny Quote</h3>
+            </div>
+            <div class="card-content">
+                <p>Get A Funny Quote</p>
+                <button class="copy-button" onclick="openCopyModal('https://ccp.apiv10b.repl.co/fq')">Copy</button>
+            </div>
+        </div>
+    </div>
+    <div class="slogan">
+        <p>Have A Really Good Day!</p>
+    </div>
+
+    <!-- Modal for Copying -->
+    <div class="modal" id="copyModal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeCopyModal()">&times;</span>
+            <p id="copyText">Endpoint Copied to Clipboard!</p>
+        </div>
+    </div>
+    <script>
+        function openCopyModal(endpointName) {
+            const copyModal = document.getElementById('copyModal');
+            const copyText = document.getElementById('copyText');
+            copyText.textContent = `"${endpointName}" Copied to Clipboard!`;
+            copyModal.style.display = 'block';
+
+            setTimeout(function () {
+                copyModal.style.display = 'none';
+            }, 2000);
+
+            // Copy to clipboard
+            const copyTextElement = document.createElement('textarea');
+            copyTextElement.value = endpointName;
+            document.body.appendChild(copyTextElement);
+            copyTextElement.select();
+            document.execCommand('copy');
+            document.body.removeChild(copyTextElement);
+        }
+
+        function closeCopyModal() {
+            const copyModal = document.getElementById('copyModal');
+            copyModal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
